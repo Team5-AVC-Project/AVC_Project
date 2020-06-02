@@ -1,5 +1,5 @@
 # AVCGroupProject
-<h1>Group Plan for ENGR101 AVC Project</h1> <br>
+<h3>Group Plan for ENGR101 AVC Project</h3> <br>
                                        
 
 Team Name: TBD <br>
@@ -35,3 +35,6 @@ git, writing test cases and documenting performance against milestones) <br>
 |                |                                        | *                      |                                 | Adapt Code to Challenge Standards<br>Testing Code                   | TBD                |
 |                | Testing robot                          | *                      | N/A                             | Test Robot in Maze<br>Debug Robot                                   | TBD                |
 |                | Week 1 Discussion<br>Week 2 Discussion | 12th June<br>19th June | Report of weekly<br>discussions | TBD                                                                 | Project Manager    |
+
+<h3>Installation</h3> <br>
+TBD
