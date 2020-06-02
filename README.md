@@ -1,5 +1,5 @@
 # AVCGroupProject
-Group Plan for ENGR101 AVC Project <br>
+<h1>Group Plan for ENGR101 AVC Project</h1> <br>
                                        
 
 Team Name: TBD <br>
