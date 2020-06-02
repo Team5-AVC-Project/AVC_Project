@@ -25,7 +25,7 @@ git, writing test cases and documenting performance against milestones)
 
 
 
-| Date Completed | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
+| Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
 |                | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
 |                |                                        | 4th June               | Group Github link               | Create group github                                                 | Project Manager    |
