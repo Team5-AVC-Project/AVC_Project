@@ -1,29 +1,29 @@
 # AVCGroupProject
-Group Repo for ENGR101 AVC Project
-                                                          Group Plan
+Group Repo for ENGR101 AVC Project <br>
+                                                          Group Plan <br>
 
-Team Name: TBD
-Team Members & contact info:
-Hunter Arthur
-Jamuel Bocacao
-Jeffrey Peake
-James Ybanez
+Team Name: TBD <br>
+Team Members & contact info:<br>
+Hunter Arthur <br>
+Jamuel Bocacao <br>
+Jeffrey Peake <br>
+James Ybanez <br>
 
-Communication tool:
-Discord
+Communication tool: <br>
+Discord <br>
 
-Roles:
-Jamuel Bocacao - Project Manager (organising team meetings, reporting regularly on progress)
+Roles: <br>
+Jamuel Bocacao - Project Manager (organising team meetings, reporting regularly on progress) <br>
 
-X - Software Architect (writing core code and extending functionality)
-
-X - Software writing, testing and documentation (debugging software and committing to
-git, writing test cases and documenting performance against milestones)
+X - Software Architect (writing core code and extending functionality) <br>
 
 X - Software writing, testing and documentation (debugging software and committing to
-git, writing test cases and documenting performance against milestones)
+git, writing test cases and documenting performance against milestones) <br>
 
-"*" Dictates that it has the same value above it
+X - Software writing, testing and documentation (debugging software and committing to 
+git, writing test cases and documenting performance against milestones) <br>
+
+" * " Dictates that it has the same value above it <br>
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
