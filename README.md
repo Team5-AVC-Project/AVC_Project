@@ -1,10 +1,8 @@
 # AVCGroupProject
-<style>
-p {text-align: center;}
-</style>
+
 
 Group Repo for ENGR101 AVC Project <br>
-                                                          <p> Group Plan </p> <br>
+                                       <p style="text-align: center;"> Group Plan </p> <br>
 
 Team Name: TBD <br>
 Team Members & contact info:<br>
