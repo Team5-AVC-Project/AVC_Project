@@ -23,7 +23,7 @@ git, writing test cases and documenting performance against milestones)
 X - Software writing, testing and documentation (debugging software and committing to
 git, writing test cases and documenting performance against milestones)
 
-
+* Dictates that it has the same value above it
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
