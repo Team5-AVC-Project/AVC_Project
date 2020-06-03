@@ -23,7 +23,7 @@ git, writing test cases and documenting performance against milestones) <br>
 James Ybanez - Software writing, testing and documentation (debugging software and committing to 
 git, writing test cases and documenting performance against milestones) <br>
 
-<h6> " * " Dictates that it has the same value above it </h6> <br>
+<h4> " * " Dictates that it has the same value above it </h4> <br>
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
