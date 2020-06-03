@@ -6,7 +6,7 @@
 <h3>Team Members & contact info:</h3> <br>
 <b>Hunter Arthur</b> - Add Contact<br>
 <b>Jamuel Bocacao</b> - bocacajamu@vuw.ac.nz <br>
-<b>Jeffrey Peake</b> - Add Contact <br>
+<b>Jeffrey Peake</b> - peakejeff@myvuw.ac.nz <br>
 <b>James Ybanez</b> - ybanezjame@vuw.ac.nz <br>
 
 <b>Communication tool:</b> <br>
