@@ -2,14 +2,14 @@
 <h3>Group Plan for ENGR101 AVC Project</h3> <br>
                                        
 
-Team Name: TBD <br>
-Team Members & contact info:<br>
-Hunter Arthur <br>
-Jamuel Bocacao <br>
-Jeffrey Peake <br>
-James Ybanez <br>
+<h3>Team Name: TBD</h3> <br>
+<h3>Team Members & contact info:</h3> <br>
+<b>Hunter Arthur</b> - Add Contact<br>
+<b>Jamuel Bocacao</b> - bocacajamu@vuw.ac.nz <br>
+<b>Jeffrey Peake</b> - Add Contact <br>
+<b>James Ybanez</b> - Add Contact <br>
 
-Communication tool: <br>
+<b>Communication tool:</b> <br>
 Discord <br>
 
 Roles: <br>
@@ -27,7 +27,7 @@ git, writing test cases and documenting performance against milestones) <br>
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
-| 3rd June       | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
+|                | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
 | 2nd June       | *                                      | *                      | Group Github link               | Create group github                                                 | Project Manager    |
 | 3rd June       | *                                      | *                      | Group Plan                      | Completed Plan                                                      | All                |
 |                | Coding the robot                       | 19th June<br>          | Robot Code                      | Design Core Code<br>Testing Code                                    | Jeffrey Peake<br> James Ybanez|
