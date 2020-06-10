@@ -1,7 +1,5 @@
 #include "robot.hpp"
 
-
-
 int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
@@ -11,12 +9,12 @@ int main(){
     takePicture();
     SavePPMFile("i0.ppm",cameraView);
     while(1){
-	  takePicture();
+		  takePicture();
 	  double middle = 0.0;
 	  int whiteNum = 0;
 	  double error = 0.0;
 	  for (int i = 0; i < 150; i++){
-		  int pix = get_pixel(cameraView,99.99, i, 3);
+		  int pix = get_pixel(cameraView,50, i, 3);
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
@@ -29,7 +27,7 @@ int main(){
 		  std::cout<<isWhite<<" ";
 	  }
 	  middle = error/whiteNum; //middle white line
-	  double differenceErrorMiddle = (100/2) - middle; 
+	  double differenceErrorMiddle = (150/2) - middle; 
 	  if (differenceErrorMiddle > 0){ //turns the robot to the right 
 		  vLeft = 10.00;
 		  vRight = 15.00;
@@ -51,6 +49,7 @@ int main(){
       setMotors(vLeft,vRight);   
       std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
        usleep(10000);
-    } //while
+  } //while
 
 } // main
+
