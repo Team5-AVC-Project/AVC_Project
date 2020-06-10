@@ -14,7 +14,7 @@ int main(){
 	  int whiteNum = 0;
 	  double error = 0.0;
 	  for (int i = 0; i < 150; i++){
-		  int pix = get_pixel(cameraView,50, i, 3);
+		  int pix = get_pixel(cameraView,50, i, 3); //get pixel from middle row of image
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
@@ -27,7 +27,7 @@ int main(){
 		  std::cout<<isWhite<<" ";
 	  }
 	  middle = error/whiteNum; //middle white line
-	  double differenceErrorMiddle = (150/2) - middle; 
+	  double differenceErrorMiddle = (150/2) - middle; //how far from centre white line is
 	  if (differenceErrorMiddle > 0){ //turns the robot to the right 
 		  vLeft = 10.00;
 		  vRight = 15.00;
