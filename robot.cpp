@@ -1,6 +1,6 @@
 #include "robot.hpp"
 
-
+double speedVariable();
 
 int main(){
 	if (initClientRobot() !=0){
@@ -10,45 +10,47 @@ int main(){
     double vRight = 10.0;
     takePicture();
     SavePPMFile("i0.ppm",cameraView);
+    
     while(1){
 	  takePicture();
-	  double middle = 0.0;
-	  int whiteNum = 0;
-	  double error = 0.0;
-	  for (int i = 0; i < 150; i++){
-		  int pix = get_pixel(cameraView, 99.99, i, 3);
-		  int isWhite;
-		  if(pix > 250){ 
-			  isWhite = 1;
-			  error = error + i; 
-			  whiteNum = whiteNum + 1; // amount of white that occurs
-		  }
-		  else if (pix<=250){
-			  isWhite=0; 
-		  }
-		  std::cout<<isWhite<<" ";
-	  }
-	  middle = error/whiteNum; //middle white line
-	  double differenceErrorMiddle = (100/2) - middle; 
-	  double Kp = 0.01;
-	  double dv = Kp * differenceErrorMiddle;
-	  if (differenceErrorMiddle != 0){
-		  vLeft = 10.00 - (10.00*dv);
-		  vRight = 10.00 + (10.00*dv);
-	  }
-	  else if (differenceErrorMiddle == 0){ //moves straight
-		  vLeft = 10.00;
-		  vRight = 10.00;
-	  }
-	  else if (whiteNum == 0){ //moves robot straight when it's about to reach finish line
-		  vLeft = 10.00;
-		  vRight = 10.00;
-	  }
-	 
+	  
+		vLeft = 20.00 - speedVariable();
+		vRight = 20.00 + speedVariable();
+	  
 	  std::cout<<std::endl;
       setMotors(vLeft,vRight);   
       std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
        usleep(10000);
-    } //while
+  } //while
 
 } // main
+
+double speedVariable(){
+	takePicture();
+	  double whiteMiddle = 0.0; // middle of white line
+	  int whiteNum = 0; //number of pixels in white line
+	  double whitePos = 0.0; // sum of positions that are white  
+	  
+	  for (int i = 0; i < 150; i++){ // search along the halfway line for the white line
+		  int pix = get_pixel(cameraView,99.99, i, 3);
+		  int isWhite;
+		  if(pix > 250){ 
+			  isWhite = 1;
+			  whitePos = whitePos + i; 
+			  whiteNum = whiteNum + 1;
+		  }
+		  else if (pix<=250){
+			  isWhite=0; 
+		  }
+		 std::cout<<isWhite<<" ";
+	  }
+	  if(whiteNum==0){ // if white line is gone then continue straight
+		return 0.0;
+	  }else{
+		whiteMiddle = whitePos/whiteNum; 
+	  }
+	  double error = (150/2) - whiteMiddle; // how far from middle white line is 
+	  double dv = 0.20 * error; //how much power to give wheels
+	  
+	  return dv;
+} // finds white line, calculates amount of error then calculates how much to turn (dv)
