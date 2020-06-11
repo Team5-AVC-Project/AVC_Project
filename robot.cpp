@@ -1,6 +1,7 @@
 #include "robot.hpp"
 
-double speedVariable();
+double errorAmount();
+bool leftPath();
 
 int main(){
 	if (initClientRobot() !=0){
@@ -14,8 +15,14 @@ int main(){
     while(1){
 	  takePicture();
 	  
-		vLeft = 20.00 - speedVariable();
-		vRight = 20.00 + speedVariable();
+	  if(leftPath()){
+		vLeft = 0.00;
+		vRight = 20.00;
+	  }else{
+		double dv = 0.20 * errorAmount(); //how much power to give wheels
+		vLeft = 20.00 - dv;
+		vRight = 20.00 + dv;
+	  }
 	  
 	  std::cout<<std::endl;
       setMotors(vLeft,vRight);   
@@ -25,14 +32,14 @@ int main(){
 
 } // main
 
-double speedVariable(){
+double errorAmount(){
 	takePicture();
 	  double whiteMiddle = 0.0; // middle of white line
 	  int whiteNum = 0; //number of pixels in white line
 	  double whitePos = 0.0; // sum of positions that are white  
 	  
 	  for (int i = 0; i < 150; i++){ // search along the halfway line for the white line
-		  int pix = get_pixel(cameraView,99.99, i, 3);
+		  int pix = get_pixel(cameraView,80, i, 3);
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
@@ -50,7 +57,22 @@ double speedVariable(){
 		whiteMiddle = whitePos/whiteNum; 
 	  }
 	  double error = (150/2) - whiteMiddle; // how far from middle white line is 
-	  double dv = 0.20 * error; //how much power to give wheels
 	  
-	  return dv;
+	  return error;
 } // finds white line, calculates amount of error then calculates how much to turn (dv)
+
+bool leftPath(){
+	int wPixel;
+		for(int i = 0; i < 101; i++){
+			int pix = get_pixel(cameraView, i, 30, 3);
+			wPixel;
+			if(pix > 250){
+				wPixel++;
+			}
+		}
+		
+		if(wPixel < 10 && wPixel > 1){
+			return true;
+		}else{return false;}
+}
+
