@@ -16,7 +16,7 @@ int main(){
 	  int whiteNum = 0;
 	  double error = 0.0;
 	  for (int i = 0; i < 150; i++){
-		  int pix = get_pixel(cameraView,99.99, i, 3);
+		  int pix = get_pixel(cameraView, 99.99, i, 3);
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
@@ -30,13 +30,11 @@ int main(){
 	  }
 	  middle = error/whiteNum; //middle white line
 	  double differenceErrorMiddle = (100/2) - middle; 
-	  if (differenceErrorMiddle > 0){ //turns the robot to the right 
-		  vLeft = 10.00;
-		  vRight = 15.00;
-	  }
-	  else if (differenceErrorMiddle < 0){ //turns the robot to the left
-		  vLeft = 15.00;
-		  vRight = 10.00;
+	  double Kp = 0.01;
+	  double dv = Kp * differenceErrorMiddle;
+	  if (differenceErrorMiddle != 0){
+		  vLeft = 10.00 - (10.00*dv);
+		  vRight = 10.00 + (10.00*dv);
 	  }
 	  else if (differenceErrorMiddle == 0){ //moves straight
 		  vLeft = 10.00;
@@ -46,7 +44,7 @@ int main(){
 		  vLeft = 10.00;
 		  vRight = 10.00;
 	  }
-	  
+	 
 	  std::cout<<std::endl;
       setMotors(vLeft,vRight);   
       std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
