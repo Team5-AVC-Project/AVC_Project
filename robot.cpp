@@ -16,8 +16,8 @@ int main(){
 	  takePicture();
 	  
 	  if(leftPath()){
-		vLeft = 0.00;
-		vRight = 20.00;
+		vLeft = 20.00;
+		vRight = 0.00;
 	  }else{
 		double dv = 0.20 * errorAmount(); //how much power to give wheels
 		vLeft = 20.00 - dv;
@@ -62,17 +62,16 @@ double errorAmount(){
 } // finds white line, calculates amount of error then calculates how much to turn (dv)
 
 bool leftPath(){
-	int wPixel;
-		for(int i = 0; i < 101; i++){
-			int pix = get_pixel(cameraView, i, 30, 3);
+	int wPixel = 0;
+		for(int i = 0; i < 100; i++){
+			int pix = get_pixel(cameraView, 90.00, i, 3);
 			wPixel;
 			if(pix > 250){
 				wPixel++;
 			}
 		}
 		
-		if(wPixel < 10 && wPixel > 1){
+		if(wPixel == 0){
 			return true;
 		}else{return false;}
 }
-
