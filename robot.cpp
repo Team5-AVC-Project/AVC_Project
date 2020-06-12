@@ -1,7 +1,6 @@
 #include "robot.hpp"
 
 double errorAmount();
-bool leftPath();
 
 int main(){
 	if (initClientRobot() !=0){
@@ -14,8 +13,7 @@ int main(){
     
     while(1){
 	  takePicture();
-	  
-	  if(leftPath()){
+	  if(errorAmount()==0){ // if line is lost, turn right. otherwise continue straight
 		vLeft = 20.00;
 		vRight = 0.00;
 	  }else{
@@ -39,7 +37,7 @@ double errorAmount(){
 	  double whitePos = 0.0; // sum of positions that are white  
 	  
 	  for (int i = 0; i < 150; i++){ // search along the halfway line for the white line
-		  int pix = get_pixel(cameraView,80, i, 3);
+		  int pix = get_pixel(cameraView,90, i, 3);
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
@@ -51,7 +49,7 @@ double errorAmount(){
 		  }
 		 std::cout<<isWhite<<" ";
 	  }
-	  if(whiteNum==0){ // if white line is gone then continue straight
+	  if(whiteNum==0){ // if white line is gone 
 		return 0.0;
 	  }else{
 		whiteMiddle = whitePos/whiteNum; 
@@ -60,18 +58,3 @@ double errorAmount(){
 	  
 	  return error;
 } // finds white line, calculates amount of error then calculates how much to turn (dv)
-
-bool leftPath(){
-	int wPixel = 0;
-		for(int i = 0; i < 100; i++){
-			int pix = get_pixel(cameraView, 90.00, i, 3);
-			wPixel;
-			if(pix > 250){
-				wPixel++;
-			}
-		}
-		
-		if(wPixel == 0){
-			return true;
-		}else{return false;}
-}
