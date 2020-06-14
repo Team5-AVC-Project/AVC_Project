@@ -27,7 +27,7 @@ git, writing test cases and documenting performance against milestones) <br>
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
-|                | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
+| 3rd June <br> * <br> 9th June               | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
 | 2nd June       | *                                      | *                      | Group Github link               | Create group github                                                 | Project Manager    |
 | 3rd June       | *                                      | *                      | Group Plan                      | Completed Plan                                                      | All                |
 |                | Coding the robot                       | 12th June              | Robot Code                      | Design Core Code<br>Testing Code                                    | Jeffrey Peake<br> James Ybanez|

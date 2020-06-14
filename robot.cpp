@@ -16,11 +16,10 @@ int main(){
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
-	
     takePicture();
     SavePPMFile("i0.ppm",cameraView);
     
-    while(1){
+  while(1){
 		takePicture();
 		motorSpeed speedSet = move(); //struct containing left and right motor speed
 		  
@@ -78,7 +77,6 @@ double errorAmount(){
 		whiteMiddle = whitePos/whiteNum; 
 	  }
 	  double error = (150/2) - whiteMiddle; // how far from middle white line is 
-	  
 	  return error;
 } // finds white line, calculates amount of error then calculates how much to turn (dv
 
