@@ -1,6 +1,8 @@
 #include "robot.hpp"
 
 double speedVariable();
+bool lineLoss();
+bool flagReached();
 
 int main(){
 	if (initClientRobot() !=0){
@@ -13,9 +15,19 @@ int main(){
     
     while(1){
 	  takePicture();
-	  
+
+      if(flagReached() == true){
+		vLeft = 0.00;
+		vRight = 0.00;	
+	  }
+	  else if(lineLoss() == false){ 
 		vLeft = 20.00 - speedVariable();
 		vRight = 20.00 + speedVariable();
+	  }
+	  else{
+		vLeft = 20.00;
+		vRight = 0.00;
+	  }
 	  
 	  std::cout<<std::endl;
       setMotors(vLeft,vRight);   
@@ -25,6 +37,23 @@ int main(){
 
 } // main
 
+bool lineLoss(){
+	int whitePix = 0;
+		for(int x = 0; x < 100; x++){
+			int pix = get_pixel(cameraView, 99.99, x, 3);
+			whitePix;
+			if(pix > 250){
+				whitePix++;
+			}
+		}
+		if(whitePix == 0){
+			return true;
+		}
+		else{
+			return false;
+		}
+}//If the white line is lost spins until locating it again
+
 double speedVariable(){
 	takePicture();
 	  double whiteMiddle = 0.0; // middle of white line
@@ -32,12 +61,12 @@ double speedVariable(){
 	  double whitePos = 0.0; // sum of positions that are white  
 	  
 	  for (int i = 0; i < 150; i++){ // search along the halfway line for the white line
-		  int pix = get_pixel(cameraView,50, i, 3);
+		  int pix = get_pixel(cameraView, 99.99, i, 3);
 		  int isWhite;
 		  if(pix > 250){ 
 			  isWhite = 1;
 			  whitePos = whitePos + i; 
-			  whiteNum = whiteNum + 1;
+			  whiteNum++;
 		  }
 		  else if (pix<=250){
 			  isWhite=0; 
@@ -49,9 +78,25 @@ double speedVariable(){
 	  }else{
 		whiteMiddle = whitePos/whiteNum; 
 	  }
-	  double error = (150/2) - whiteMiddle; // how far from middle white line is 
-	  double dv = 0.20 * error; //how much power to give wheels
-	  
-	  return dv;
-} // finds white line, calculates amount of error then calculates how much to turn (dv)
+	  double dv = 0.20*((150/2) - whiteMiddle); // how far from middle white line is 	  
+	  return dv; //Addition to speed to give the wheels
+} // finds white line, calculates distance from middle then calculates how much to turn (dv)
 
+bool flagReached(){
+	int blackPix = 0;
+	int currentPix;
+	for(int x = 0; x < 100; x++){
+		for(int y = 0; y < 150; y++){
+			currentPix = get_pixel(cameraView, x, y, 3);
+			if(currentPix < 10){
+				blackPix++;
+			}
+		}
+	}
+	if(blackPix>1000){
+		return true;	
+	}
+	else{
+		return false;
+	}
+}//Checks for a sum of black pixels on the screen and if theres enough returns the flag has been reached
