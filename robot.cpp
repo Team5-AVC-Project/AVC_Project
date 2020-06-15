@@ -107,7 +107,7 @@ bool flagReached(){
 			}
 		}
 	}
-	if(blackPix>1000){
+	if(blackPix > 2500){
 		return true;	
 	}
 	else{
