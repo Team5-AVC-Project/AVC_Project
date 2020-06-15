@@ -4,7 +4,14 @@ double speedVariable();
 bool lineLoss();
 bool flagReached();
 
+#include "robot.hpp"
+
+double speedVariable();
+bool lineLoss();
+bool flagReached();
+
 int main(){
+	int spin; //stores how much the robot has spun
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
@@ -16,17 +23,25 @@ int main(){
     while(1){
 	  takePicture();
 
-      if(flagReached() == true){
+      if(flagReached() == true){ //stops if the flag is reached
 		vLeft = 0.00;
 		vRight = 0.00;	
 	  }
-	  else if(lineLoss() == false){ 
+	  else if(lineLoss() == false){ //if line in sight continues straight
 		vLeft = 20.00 - speedVariable();
 		vRight = 20.00 + speedVariable();
 	  }
-	  else{
-		vLeft = 20.00;
-		vRight = 0.00;
+	  else{ //if neither of the above true turns around
+		if(spin <= 5){
+			vLeft = 20.00;
+			vRight = 0.00;
+			spin ++;
+	    }
+		else{
+			vLeft = 0.00;
+			vRight = 20.00;
+			spin = 0;
+		}
 	  }
 	  
 	  std::cout<<std::endl;
