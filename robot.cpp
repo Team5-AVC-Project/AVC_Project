@@ -5,8 +5,7 @@ bool lineLoss();
 bool flagReached();
 
 int main(){
-	int spin; //stores how much the robot has spun
-	int spinCount2;
+	int spin = 1; //stores how much the robot has spun
 	if (initClientRobot() !=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
@@ -27,20 +26,20 @@ int main(){
 		vRight = 20.00 + speedVariable();
 	  }
 	  else{ //if neither of the above true turns around
-		if(spin <= 5){
+		if(spin <= 6 && spin > 0){
 			vLeft = 20.00;
 			vRight = 0.00;
 			spin ++;
 	    }
-	    else if(spinCount2 == 1){
+	    else if(spin > 6){
 			vLeft = 0.00;
 			vRight = 20.00;
-			spinCount2++;
+			spin = 0;
 		}
 		else{
 			vLeft = 0.00;
 			vRight = 20.00;
-			spinCount2++;
+			spin++;
 		}
 	  }
 	  
@@ -115,4 +114,3 @@ bool flagReached(){
 		return false;
 	}
 }//Checks for a sum of black pixels on the screen and if theres enough returns the flag has been reached
-
