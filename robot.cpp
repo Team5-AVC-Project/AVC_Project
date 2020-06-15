@@ -27,11 +27,16 @@ int main(){
 		vRight = 20.00 + speedVariable();
 	  }
 	  else{ //if neither of the above true turns around
-		if(spin <= 5 && !spinCount2 == 1){
+		if(spin <= 5){
 			vLeft = 20.00;
 			vRight = 0.00;
 			spin ++;
 	    }
+	    else if(spinCount2 == 1){
+			vLeft = 0.00;
+			vRight = 20.00;
+			spinCount2++;
+		}
 		else{
 			vLeft = 0.00;
 			vRight = 20.00;
@@ -109,4 +114,5 @@ bool flagReached(){
 	else{
 		return false;
 	}
-}//Ch
+}//Checks for a sum of black pixels on the screen and if theres enough returns the flag has been reached
+
