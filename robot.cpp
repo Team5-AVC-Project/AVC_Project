@@ -13,14 +13,12 @@ void turnRobot(std::string type);
 
 // Method initialiser for Red Wall Maze
 int redPix(int r, int c);
-int errorAmountRed();
+int redLine();
 struct motorSpeed moveRed();
-bool turnRed();
-int redLeft();
-int redRight();
-bool whiteLine();
 void turnRobotRed(std::string type);
-
+bool rightPathRed();
+int leftSide();
+bool redWall();
 
 
 struct motorSpeed{
@@ -37,17 +35,14 @@ int main(){
 	
 	takePicture();
 	SavePPMFile("i0.ppm",cameraView);
-    
+    bool mazeIsRed = false;
 	while(1){
 		takePicture();
 		motorSpeed speedSet = {0, 0};
-		
-		if (redMaze()){ // Prioritises red maze detection
-			while (whiteLine()){
-				speedSet.mLeft = 30;
-				speedSet.mRight = 30;
-				setMotors(speedSet.mLeft, speedSet.mRight);
-			} // Positions robot properly in red maze
+		if (!mazeIsRed){
+			mazeIsRed = redMaze();
+		}
+		if (mazeIsRed){ // Prioritises red maze detection
 			speedSet = moveRed(); // Switches maze detection algorithm to red walls
 		} else {
 			speedSet = moveWhite(); // Switches maze detection algorithm to white line
@@ -200,105 +195,80 @@ bool redMaze(){
 motorSpeed moveRed(){
 	motorSpeed speedSet {20.0,20.0}; //default straight forward at 20.0 speed
 	
-	if(isFinished()){return speedSet;}// if finish flag reached, continue straight
+	//if(isFinished()){return speedSet;}// if finish flag reached, continue straight
 	
-	if(turnRed() && (redLeft() > 0) && (redRight() > 0)){ // if dead end, turn around
-		std::cout<<"turn around"<<std::endl;
-		for (int i = 0; i<34; i++){
-			setMotors(0, 20);
+	if (!(redWall())){
+		if (leftSide() == 0){
+			std::cout<<"turnLeft"<<std::endl;
+			turnRobotRed("left");
 		}
-	}
-	
-	if (redLeft() == 0 && redRight() == 0){ // If line is lost continue till wall is hit
-		while(!(turnRed())){
-			takePicture();
-			setMotors(20, 20);
+		if (leftSide() == 0 && rightPathRed()){
+			while (!redWall()){
+				std::cout<<"go Straight"<<std::endl;
+				setMotors(20.0, 20.0);
+			}
+			return {0, 0};
 		}
-	} else if(redLeft() == 0){ // turn left if left path is available
-		turnRobotRed("left");
-	} else if(redRight() == 0){ // if right path is available, turn right
-		turnRobotRed("right");
-	}
-	
-	double dv = -0.02 * errorAmountRed(); //calculation for speed when following straights / soft corners
-	speedSet.mLeft = 20.00 - dv;
-	speedSet.mRight = 20.00 + dv;
-	
-	return speedSet;	
+		double dv = -0.66 * redLine(); //calculation for speed when following straights / soft corners
+		speedSet.mLeft = 15.00 - dv;
+		speedSet.mRight = 15.00 + dv;
+		return speedSet;	
+	} else {
+		if (redWall()){
+			if (rightPathRed()){
+				std::cout<<"turnRight"<<std::endl;
+				turnRobotRed("right");
+			} else if(!(rightPathRed()) && (leftSide() > 0)){
+				std::cout<<"turnAround"<<std::endl;
+				for (int i = 0; i<34; i++){ // Turns 90 degrees
+					setMotors(10, -10);
+				}
+				for (int i = 0; i<7; i++){
+					setMotors(20, 20);
+				}
+			}
+		}
 		
+	}	
 } //decides whether to go forward, left, right or turn around for red maze
 
-int errorAmountRed(){
-	int redL = redLeft();
-	int redR = redRight();
-	int sideDiff = 0;
-	
-	if (redL == 0 || redR ==0){
-		return 0;
-	}
-	sideDiff = redL - redR;
-	return sideDiff;
-} // Returns the amount of red pixels left side has more than red
-
-int redLeft(){
-	int redLeft = 0;
-	for (int c = 0; c<75; c++){
-			redLeft += redPix(90, c);
-	}
-	return redLeft;
-} // Returns the amount of red pixels on the left of robot
-
-int redRight(){
-	int redRight = 0;
-	for (int c = 75; c<150; c++){
-		redRight += redPix(90, c);
-	}
-	return redRight;
-} // Returns the amount of red pixels on the right of robot
-
-bool turnRed(){
-	int rPixel = 0;
-	for (int i = 0; i<150; i++){
-		if(redPix(60, i)){
-			rPixel++;
+int redLine(){
+	int redPos = 0;
+	for (int i = 0; i < 75; i++){
+		if (redPix(99, i) == 1){
+			redPos = i;
 		}
 	}
-	if (rPixel>75){
+	return (redPos - 10);
+} // Returns the amount of red pixels left side has more than red
+
+bool redWall(){
+	int redPos = 0;
+	for (int i = 0; i<100; i++){
+		if(redPix(i, 75) == 1){
+			redPos = i;
+		}
+	}
+	
+	std::cout<<redPos<<std::endl;
+	if (redPos > 60){
 		return true;
 	} else {return false;}
 } // Tests if a wall is infront of it
 
-bool whiteLine(){
-	int wPix = 0;
-	for (int i = 50; i < 100; i++){
-		int wPix = get_pixel(cameraView, 99, i, 3);
-		if(wPix > 250){
-			wPix++;
-		}
-	}
-	if (wPix > 0){
-		return true;
-	} else{return false;}
-} // Tells the robot to position itself after line is gone
-
 void turnRobotRed(std::string type){
 	if(type=="left"){
-		while(!(turnRed())){ // Moves straight till wall is found so that robot is roughly halfway between walls when turning
-			takePicture();
+		for (int i = 0; i<35; i++){ // Moves straight so that its inbetween walls again
 			setMotors(20, 20);
 		}
 		for (int i = 0; i<17; i++){ // Turns 90 degrees
 			setMotors(0, 20);
 		}
-		for (int i = 0; i<5; i++){ // Moves straight so that its inbetween walls again
+		for (int i = 0; i<10; i++){ // Moves straight so that its inbetween walls again
 			setMotors(20, 20);
 		}
 	}
 	if(type=="right"){
-		while(!(turnRed())){ // Moves straight till wall is found so that robot is roughly halfway between walls when turning
-			takePicture();
-			setMotors(20, 20);
-		}
 		for (int i = 0; i<17; i++){ // Turns 90 degrees
 			setMotors(20, 0);
 		}
@@ -307,6 +277,24 @@ void turnRobotRed(std::string type){
 		}	
 	}
 } // Controls turning of robot
+
+bool rightPathRed(){
+	int rPixel = 0;
+	for(int i = 130; i < 150; i++){
+		rPixel += redPix(99, i);
+	}
+	if(rPixel == 0){
+		return true;
+	} else{return false;}	
+} // checks if there is a pathway to the right
+
+int leftSide(){
+	int rPixels = 0;
+	for (int i = 0; i<30; i++){
+		rPixels += redPix(99, i);
+	}
+	return rPixels;
+}
 
 int redPix(int r, int c){
 	int rPix = get_pixel(cameraView, r, c, 0); // Gets red pixel value
