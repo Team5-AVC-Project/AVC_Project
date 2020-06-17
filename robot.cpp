@@ -182,7 +182,7 @@ bool redMaze(){
 	} else {
 		return false;
 	}
-} // checks whether scenario is a red maze
+} // Tests whether robot is following red walls or white lines
 
 motorSpeed moveRed(){
 	motorSpeed speedSet {20.0,20.0}; //default straight forward at 20.0 speed
@@ -230,7 +230,7 @@ int redLine(){
 		}
 	}
 	return (redPos - 10);
-} // Returns the amount of red pixels left side has more than red
+} // Returns distance that wall is away from its desired position
 
 bool redWall(){
 	int redPos = 0;
