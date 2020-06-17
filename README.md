@@ -23,18 +23,18 @@ git, writing test cases and documenting performance against milestones) <br>
 James Ybanez - Software writing, testing and documentation (debugging software and committing to 
 git, writing test cases and documenting performance against milestones) <br>
 
-<h4> " * " Dictates that it has the same value above it </h4> <br>
+<h4> " * " Denotes that it has the same value above it </h4> <br>
 
 | Date Comp.     | Objectives                             | Due Date               | Item Due                        | Tasks                                                               | Member Involvement |
 |----------------|----------------------------------------|------------------------|---------------------------------|---------------------------------------------------------------------|--------------------|
 | 3rd June <br> * <br> 9th June               | Preparing the project                  | 4th June               | N/A                             | Assign Roles and Tasks<br>Installation of software<br>Test software | All                |
 | 2nd June       | *                                      | *                      | Group Github link               | Create group github                                                 | Project Manager    |
 | 3rd June       | *                                      | *                      | Group Plan                      | Completed Plan                                                      | All                |
-|                | Coding the robot                       | 12th June              | Robot Code                      | Design Core Code<br>Testing Code                                    | Jeffrey Peake<br> James Ybanez|
-|                | *                                      | 15th June              | *                               | Adapt Code to Completion Standards<br>Testing Code                  | Hunter Arthur<br> James Ybanez|
-|                | *                                      | 18th June              | *                               | Adapt Code to Challenge Standards<br>Testing Code                   | Jamuel Bocacao     |
-|                | Testing robot                          | 19th June              | N/A                             | Test Robot in Maze<br>Debug Robot                                   | All                |
-|                | Week 1 Discussion<br>Week 2 Discussion | 12th June<br>19th June | Report of weekly<br>discussions | Write a log showing the progress report of project every week       | Project Manager    |
+| 11th June      | Coding the robot                       | 12th June              | Robot Code                      | Design Core Code<br>Testing Code                                    | Jeffrey Peake<br> James Ybanez|
+| 15th June      | *                                      | 15th June              | *                               | Adapt Code to Completion Standards<br>Testing Code                  | Hunter Arthur<br> James Ybanez|
+| 17th June      | *                                      | 18th June              | *                               | Adapt Code to Challenge Standards<br>Testing Code                   | Jamuel Bocacao     |
+| *              | Testing robot                          | 19th June              | N/A                             | Test Robot in Maze<br>Debug Robot                                   | All                |
+| 11th June <br> 17th June| Week 1 Discussion<br>Week 2 Discussion | 12th June<br>19th June | Report of weekly<br>discussions | Write a log showing the progress report of project every week       | Project Manager    |
 
 
 <br><h1>Installation for Windows 64 Bit PCs</h1><br>
