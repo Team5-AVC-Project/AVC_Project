@@ -20,12 +20,10 @@ bool rightPathRed();
 int leftSide();
 bool redWall();
 
-
 struct motorSpeed{
 		double mLeft;
 		double mRight;
 }; // stores left and right motor speeds
-
 
 
 int main(){
@@ -38,7 +36,7 @@ int main(){
     bool mazeIsRed = false;
 	while(1){
 		takePicture();
-		motorSpeed speedSet = {0, 0};
+		motorSpeed speedSet = {20, 20};
 		if (!mazeIsRed){
 			mazeIsRed = redMaze();
 		}
@@ -53,13 +51,10 @@ int main(){
 
 } // main
 
-// TESTING FOR WHITE MAZE
-
+// WHITE MAZE
 // ----------------------------*****----------------------------
 // ----------------------------*****----------------------------
 // ----------------------------*****----------------------------
-
-
 motorSpeed moveWhite(){
 	motorSpeed speedSet {20.0,20.0}; //default straight forward at 20.0 speed
 	
@@ -110,7 +105,6 @@ bool leftPath(){
 	int wPixel = 0;
 	for(int i = 80; i < 100; i++){
 		int pix = get_pixel(cameraView, i, 30, 3);
-		//wPixel;
 		if(pix > 250){
 			wPixel++;
 		}
@@ -124,7 +118,6 @@ bool rightPath(){
 	int wPixel = 0;
 	for(int i = 80; i < 100; i++){
 		int pix = get_pixel(cameraView, i, 120, 3);
-		//wPixel;
 		if(pix > 250){
 			wPixel++;
 		}
@@ -157,15 +150,14 @@ bool isFinished(){
 				if(pix < 5){bPixel++;}
 			}
 		}
-	if(bPixel > 1000){
+	if(bPixel > 2500){
 		std::cout<<"FINISHED"<<std::endl;
 		return true;
 	}else{return false;}
 } // checks whether finish flag is in sight
 
 
-// TESTING FOR RED MAZE
-
+// RED MAZE
 // ----------------------------*****----------------------------
 // ----------------------------*****----------------------------
 // ----------------------------*****----------------------------
@@ -190,51 +182,55 @@ bool redMaze(){
 	} else {
 		return false;
 	}
-} // Tests whether robot is following red walls or white lines
+} // checks whether scenario is a red maze
 
 motorSpeed moveRed(){
 	motorSpeed speedSet {20.0,20.0}; //default straight forward at 20.0 speed
 	
-	if (!(redWall())){ // Movement that doesn't require the detection of a wall in front
+	if (!(redWall())){
 		if (leftSide() == 0){
+			std::cout<<"turnLeft"<<std::endl;
 			turnRobotRed("left");
 		}
 		if (leftSide() == 0 && rightPathRed()){
 			while (!redWall()){
+				std::cout<<"go Straight"<<std::endl;
 				setMotors(20.0, 20.0);
 			}
 			return {0, 0};
 		}
-		
 		double dv = -0.66 * redLine(); //calculation for speed when following straights / soft corners
 		speedSet.mLeft = 15.00 - dv;
 		speedSet.mRight = 15.00 + dv;
 		return speedSet;	
-		
-	} else { // Movement that does require the detection of a wall in front
-		if (rightPathRed()){ // Turns right
-			turnRobotRed("right");
-		} else if(!(rightPathRed()) && (leftSide() > 0)){ // Detects dead end
-			for (int i = 0; i<34; i++){ // Turns around
-				setMotors(10, -10);
+	} else {
+		if (redWall()){
+			if (rightPathRed()){
+				std::cout<<"turnRight"<<std::endl;
+				turnRobotRed("right");
+			} else if(!(rightPathRed()) && (leftSide() > 0)){
+				std::cout<<"turnAround"<<std::endl;
+				for (int i = 0; i<34; i++){ // Turns 90 degrees
+					setMotors(10, -10);
+				}
+				for (int i = 0; i<7; i++){
+					setMotors(20, 20);
+				}
 			}
-			for (int i = 0; i<7; i++){ // Moves slightly forward
-				setMotors(20, 20);
-			}
-		}
+		}	
 	}
 	return speedSet;	
 } //decides whether to go forward, left, right or turn around for red maze
 
 int redLine(){
-	int redPos = 0; // Pos number for where left wall is
+	int redPos = 0;
 	for (int i = 0; i < 75; i++){
 		if (redPix(99, i) == 1){
 			redPos = i;
 		}
 	}
-	return (redPos - 10); 
-} // Returns distance that wall is away from its desired position
+	return (redPos - 10);
+} // Returns the amount of red pixels left side has more than red
 
 bool redWall(){
 	int redPos = 0;
@@ -244,7 +240,8 @@ bool redWall(){
 		}
 	}
 	
-	if (redPos > 60){ // Row 60 is when the front of robot is halfway in between walls to its side
+	std::cout<<redPos<<std::endl;
+	if (redPos > 60){
 		return true;
 	} else {return false;}
 } // Tests if a wall is infront of it
@@ -287,7 +284,7 @@ int leftSide(){
 		rPixels += redPix(99, i);
 	}
 	return rPixels;
-} // Checks if there is a path on the left side
+} //returns number of red pixels on the left
 
 int redPix(int r, int c){
 	int rPix = get_pixel(cameraView, r, c, 0); // Gets red pixel value
@@ -296,4 +293,4 @@ int redPix(int r, int c){
 	if(rPix == 255 && gPix < 5 && bPix < 5){ // Tests whether pixel is red
 		return 1;
 	} else {return 0;}
-} // Tests to see if there is a red pixel located at the given coordinates
+} // returns 1 if pxiel is red, 0 if not
