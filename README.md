@@ -36,6 +36,7 @@ git, writing test cases and documenting performance against milestones) <br>
 |                | Testing robot                          | 19th June              | N/A                             | Test Robot in Maze<br>Debug Robot                                   | All                |
 |                | Week 1 Discussion<br>Week 2 Discussion | 12th June<br>19th June | Report of weekly<br>discussions | Write a log showing the progress report of project every week       | Project Manager    |
 
+
 <br><h1>Installation for Windows 64 Bit PCs</h1><br>
 <h3> Prerequisites </h3><br>
 
@@ -59,3 +60,4 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>3. Copy the contents of the SFML-2.5.1 folder into a folder called <b>SFML</b> in your main drive (typically C:)</p>
 <p> Your folder should look like this </p>
 <img src="https://github.com/Team5-AVC-Project/AVC_Project/blob/Challenge/MinGW%20folder.PNG"></img>
+
