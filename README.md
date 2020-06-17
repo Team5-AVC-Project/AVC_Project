@@ -36,5 +36,7 @@ git, writing test cases and documenting performance against milestones) <br>
 |                | Testing robot                          | 19th June              | N/A                             | Test Robot in Maze<br>Debug Robot                                   | All                |
 |                | Week 1 Discussion<br>Week 2 Discussion | 12th June<br>19th June | Report of weekly<br>discussions | Write a log showing the progress report of project every week       | Project Manager    |
 
-<h3>Installation</h3> <br>
-TBD
+<br><h1>Installation</h1><br>
+<h3> Prerequisites </h3><br>
+<p> Before installing the robot program, we have to download the compiler and libraries </p>
+
