@@ -77,7 +77,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>8. <b>Download</b> the <b>robot.cpp</b> file from the repository and put it into the <b>AVC_robot folder</b></p>
 <h3> IMPORTANT </h3>
 <p>If your <b>SFML folder directory</b> does <b>not</b> look like this <b>(C:\SFML)</b> when installing the libraries, <b>go</b> into the <b>makefiles</b> of both the <b>robot</b> and the <b>server</b> folders, and <b>change</b> the <b>code</b> at the <b>top line</b> to whatever <b>directory</b> your <b>folder</b> has, <b>INCLUDE</b> an <b>extra \</b> after <b>C:\</b></p>
-<p>The <b>directory</b> of the <b>folder</b> can be accessed by <b>clicking</b> on the <b>address bar<b> containing the text <b>(.../>SFML)</b></p>
+<p>The <b>directory</b> of the <b>folder</b> can be accessed by <b>clicking</b> on the <b>address bar</b> containing the text <b>(.../>SFML)</b></p>
 <p>9. Open the <b>robot.cpp</b> file, and the <b>server3.cpp</b> file, for <b>each file</b>, go into <b>build</b>, and click <b>make</b></p>
 
 <br><h2>Running Program</h2><br>
