@@ -51,10 +51,10 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>4. Enter the <b>bin folder</b> and <b>copy</b> its <b>directory</b> (e.g. C:\MinGW\bin)</p>
 <p>5. Next go to your <b>environment variables</b> </p>
 
-* In <b>Windows 8 and 10</b>, this can be done by going into <b>search<b> and <b>looking up "Environment Variables"</b>
-* In <b>Windows 7</b>. this can be done by going into <b>Control panel > System and Security > System > Advanced Settings > Environment Variables</b>
+<p>-   In <b>Windows 8 and 10</b>, this can be done by going into <b>search<b> and <b>looking up "Environment Variables"</b></p>
+<p>-   In <b>Windows 7</b>, this can be done by going into <b>Control panel > System and Security > System > Advanced Settings > Environment Variables</b></p>
 
-<p>6. <b>Edit</b> your <b>Path</b> Variables so that it <b>contains</b> the <b>directory</b> of the <b>compiler bin</b></p> folder
+<p>6. <b>Edit</b> your <b>Path</b> Variables so that it <b>contains</b> the <b>directory</b> of the <b>compiler bin</b> folder</p> 
   
 <h3> SFML Libraries </h3><br>
 <p>1. First <b>download</b> the <a href="https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip">SFML Library</a></p>
