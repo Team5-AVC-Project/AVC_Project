@@ -48,7 +48,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>3. <b>Copy</b> the <b>contents</b> of the <b>mingw64</b> folder into a folder called <b>MinGW</b> in your main drive (typically C:)</p>
 <p> Your folder should look like this </p>
 <img src="https://raw.githubusercontent.com/Team5-AVC-Project/AVC_Project/Challenge/MinGW%20folder.PNG"></img>
-<p>4. Enter the <b>bin folder<> and <b>copy</b> its <b>directory</b> (e.g. C:\MinGW\bin)</p>
+<p>4. Enter the <b>bin folder</b> and <b>copy</b> its <b>directory</b> (e.g. C:\MinGW\bin)</p>
 <p>5. Next go to your <b>environment variables</b> </p>
 * In <b>Windows 8 and 10</b>, this can be done by going into <b>search<b> and <b>looking up "Environment Variables"</b> </p>
 * In <b>Windows 7</b>. this can be done by going into <b>Control panel > System and Security > System > Advanced Settings > Environment Variables</b> </p>
