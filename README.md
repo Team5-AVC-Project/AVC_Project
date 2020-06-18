@@ -62,7 +62,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <img src="https://github.com/Team5-AVC-Project/AVC_Project/blob/Challenge/MinGW%20folder.PNG"></img>
 
 <br><h2>Installing Robot Files</h2><br>
-<p>1. First <b>download</b> the <b>AVCWIN10</b> zip file</p>
+<p>1. First <b>download</b> the <b>AVC_WIN10</b> zip file</p>
 <p>2. Once its finished downloading, <b>unzip</b> the file, and open the <b>AVC_WIN10 Folder</b></p>
 <p>3. <b>Go into</b> your <b>SFML folder</b> and enter the <b>bin folder</b></p>
 <p>4. <b>Copy all</b> of the <b>contents inside</b> the folder and <b>paste</b> them into the <b>AVC_robot folder</b> and the <b>AVC_server folder</b></p>
