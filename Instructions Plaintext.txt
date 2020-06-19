@@ -1,0 +1,72 @@
+Installation for Windows 64 Bit PCs
+Prerequisites
+
+Before installing the robot program, we have to download the compiler and libraries
+
+Compiler
+1. First download the compiler - https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.3.0/threads-posix/seh/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z/download
+2. Once its finished downloading, unzip the file, and open the mingw64 folder
+3. Copy the  contents of the  mingw64 folder into a folder called  MinGW in your main drive (typically C:)
+   Your folder should look like this (Look at "MinGW folder.PNG")
+
+4. Enter the  bin folder and  copy its  directory (e.g. C:\MinGW\bin)
+   The  directory of the  folder can be accessed by  clicking on the  address bar containing the text  (...> MinGW)
+5. Next go to your  environment variables 
+
+* In  Windows 8 and 10, this can be done by going into  search and  looking up "Environment Variables"
+* In  Windows 7, this can be done by going into  Control panel > System and Security > System > Advanced Settings > Environment Variables
+
+6.  Edit your Path Variables so that it contains the directory of the compiler bin folder
+    This can be done by scrolling down and clicking the Variable labelled Path, in the bottom right corner there should be a button called
+    Edit. Click on it and a window will pop up. Click New on the right hand side, and paste in your directory. Do it for both user and system
+    variables 
+
+
+
+
+  
+ SFML Libraries 
+1. First  download the SFML Library - https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
+2. Once its finished downloading,  unzip the file, and open the  SFML-2.5.1 Folder
+3. Copy the contents of the  SFML-2.5.1 folder into a folder called  SFML in your main drive (typically C:)
+   Your folder should look like this (Look at "SFML folder.png")
+
+
+
+
+
+Installing Robot Files
+1. First download the AVC_WIN10 zip file, or unzip from the zipped repo file
+2. Once its finished downloading,  unzip the file, and open the  AVC_WIN10 Folder
+3. Go into your  SFML folder and enter the  bin folder
+4. Copy all of the  contents inside the folder and  paste them into the  AVC_robot folder and the  AVC_server folder
+   (Look at "SFMLBin.png)
+
+5.  Delete the  robot.exe, robot.o, server3.exe, and server.o files from their folders
+6.  Go into Geany, click  build in the uppermost toolbar, click on  Set Build Commands
+7. Change the  make command to mingw32-make
+Your build commands should look like this (Look at "Build Commands.png")
+
+8.  Download the  robot.cpp file from the repository and put it into the  AVC_robot folder
+
+IMPORTANT 
+If your  SFML folder directory does not look like this (C:\SFML) because you put it in the wrong place during installation, either go back to
+SFML libraries and follow the instructions or go into the  makefiles of both the robot and the  server folders, and change the code at the top
+line to whatever directory your folder has, INCLUDE an extra \ after C:\
+
+The  directory of the  folder can be accessed by  clicking on the  address bar containing the text  (.../>SFML)
+
+9. Open the  robot.cpp file, and the  server3.cpp file, for  each file, go into  build, and click  make
+
+
+
+
+
+
+Running Program
+* To choose the maze to run, enter config.txt, there are three mazes to choose from (core.txt, completion.txt, challenge.txt) remove the core.txt
+  and replace it with any of the given mazes
+
+* To run the maze program, execute the server3.exe file in AVC_server folder
+
+* To run the robot program, execute the robot.exe file in AVC_robot folder
