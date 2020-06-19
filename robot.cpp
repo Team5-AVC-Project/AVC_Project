@@ -150,8 +150,7 @@ bool isFinished(){
 				if(pix < 5){bPixel++;}
 			}
 		}
-	if(bPixel > 2500){
-		std::cout<<"FINISHED"<<std::endl;
+	if(bPixel > 1500){
 		return true;
 	}else{return false;}
 } // checks whether finish flag is in sight
