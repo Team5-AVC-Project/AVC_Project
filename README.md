@@ -49,6 +49,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <p> Your folder should look like this </p>
 <img src="https://raw.githubusercontent.com/Team5-AVC-Project/AVC_Project/Challenge/MinGW%20folder.PNG"></img>
 <p>4. Enter the <b>bin folder</b> and <b>copy</b> its <b>directory</b> (e.g. C:\MinGW\bin)</p>
+<p>The <b>directory</b> of the <b>folder</b> can be accessed by <b>clicking</b> on the <b>address bar</b> containing the text <b>(This PC > C: > MinGW)</b></p>
 <p>5. Next go to your <b>environment variables</b> </p>
 
 * In <b>Windows 8 and 10</b>, this can be done by going into <b>search</b> and <b>looking up "Environment Variables"</b>
@@ -61,7 +62,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>2. Once its finished downloading, <b>unzip</b> the file, and open the <b>SFML-2.5.1 Folder</b></p>
 <p>3. <b>Copy</b> the contents of the <b>SFML-2.5.1</b> folder into a folder called <b>SFML</b> in your main drive (typically C:)</p>
 <p> Your folder should look like this </p>
-<img src="https://github.com/Team5-AVC-Project/AVC_Project/blob/Challenge/MinGW%20folder.PNG"></img>
+<img src="https://github.com/Team5-AVC-Project/AVC_Project/blob/master/SFML%20Folder.PNG"></img>
 
 <br><h2>Installing Robot Files</h2><br>
 <p>1. First <b>download</b> the <b>AVC_WIN10</b> zip file</p>
@@ -77,7 +78,7 @@ git, writing test cases and documenting performance against milestones) <br>
 <p>8. <b>Download</b> the <b>robot.cpp</b> file from the repository and put it into the <b>AVC_robot folder</b></p>
 <h3> IMPORTANT </h3>
 <p>If your <b>SFML folder directory</b> does <b>not</b> look like this <b>(C:\SFML)</b> when installing the libraries, <b>go</b> into the <b>makefiles</b> of both the <b>robot</b> and the <b>server</b> folders, and <b>change</b> the <b>code</b> at the <b>top line</b> to whatever <b>directory</b> your <b>folder</b> has, <b>INCLUDE</b> an <b>extra \</b> after <b>C:\</b></p>
-<p>The <b>directory</b> of the <b>folder</b> can be accessed by <b>clicking</b> on the <b>address bar</b> containing the text <b>(.../>SFML)</b></p>
+<p>The <b>directory</b> of the <b>folder</b> can be accessed by <b>clicking</b> on the <b>address bar</b> containing the text <b>(...\>SFML)</b></p>
 <p>9. Open the <b>robot.cpp</b> file, and the <b>server3.cpp</b> file, for <b>each file</b>, go into <b>build</b>, and click <b>make</b></p>
 
 <br><h2>Running Program</h2><br>
